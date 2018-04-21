@@ -1,22 +1,32 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <time.h>
 
 #include "map/map.h"
 #include "map/crossing.h"
 #include "map/street.h"
 #include "map/car.h"
 #include "config.h"
+#include "gui.h"
 
 #define CROSSING_COUNT 10
 
+#define randf() ((float)rand() / (float)RAND_MAX)
+
 int main(int argc, char **argv) {
+    MAP *map;
+    CROSSING *crossings[CROSSING_COUNT];
+    WINDOW_HANDLE *handle;
+
     printf("Creating map...\n");
-    MAP *map = map_create();
+    map = map_create();
 
     printf("Creating crossings...\n");
-    CROSSING *crossings[CROSSING_COUNT];
+    srand(time(0));
     
     for (int i = 0; i < CROSSING_COUNT; i++) {
-        crossings[i] = crossing_create(map, 0, 0, NULL);
+        crossings[i] = crossing_create(map, randf(), randf(), NULL);
     }
 
     printf("Linking crossings...\n");
@@ -25,6 +35,16 @@ int main(int argc, char **argv) {
             street_create(map, crossings[i], crossings[(i + j) % CROSSING_COUNT], 100);
         }
     }
+
+    printf("Showing window...\n");
+    handle = gui_open_window(map);
+
+    gui_render(handle);
+
+    sleep(3);
+
+    printf("Destroying window...\n");
+    gui_close_window(handle);
 
     printf("Destroying map...\n");
     map_destroy(map);

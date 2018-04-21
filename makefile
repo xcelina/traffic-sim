@@ -1,4 +1,4 @@
 SRC_FILES = $(wildcard src/*.c) $(wildcard src/**/*.c)
 
 default: $(SRC_FILES)
-	gcc -Iinclude $(SRC_FILES) -lm
+	gcc -Iinclude $(SRC_FILES) -lm `pkg-config --cflags --libs sdl2`

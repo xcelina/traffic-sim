@@ -7,7 +7,7 @@
 
 int crossing_add_source(CROSSING *crossing, STREET *source) {
     for (int i = 0; i < MAX_CROSSINGS; i++) {
-        if (crossing->source[i] != NULL) {
+        if (crossing->source[i] == NULL) {
             crossing->source[i] = source;
             return 0;
         }
@@ -18,7 +18,7 @@ int crossing_add_source(CROSSING *crossing, STREET *source) {
 
 int crossing_add_drain(CROSSING *crossing, STREET *drain) {
     for (int i = 0; i < MAX_CROSSINGS; i++) {
-        if (crossing->drain[i] != NULL) {
+        if (crossing->drain[i] == NULL) {
             crossing->drain[i] = drain;
             return 0;
         }
@@ -45,6 +45,8 @@ CROSSING *crossing_create(MAP *map, float x, float y, CROSSING_POLICY *policy) {
                 crossing->adjacency[i][j] = 0;
             }
         }
+
+        map_add_crossing(map, crossing);
     }
 
     return crossing;
