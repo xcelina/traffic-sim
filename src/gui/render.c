@@ -22,7 +22,6 @@ int gui_render(WINDOW_HANDLE *handle) {
     SDL_SetRenderDrawColor(handle->renderer, COLOR_STREETS);
 
     for (STREET **street = &(handle->map->street_list); *street != NULL; street = &((*street)->map_next)) {
-        printf("RENDER STREET\n");
         gui_render_street(handle->renderer, *street);
     }
 
@@ -33,7 +32,6 @@ int gui_render(WINDOW_HANDLE *handle) {
     SDL_SetRenderDrawColor(handle->renderer, COLOR_CROSSINGS);
 
     for (CROSSING **crossing = &(handle->map->crossing_list); *crossing != NULL; crossing = &((*crossing)->map_next)) {
-        printf("RENDER CROSSING\n");
         gui_render_crossing(handle->renderer, *crossing);
     }
 
@@ -44,7 +42,6 @@ int gui_render(WINDOW_HANDLE *handle) {
     SDL_SetRenderDrawColor(handle->renderer, COLOR_CARS);
 
     for (CAR **car = &(handle->map->car_list); *car != NULL; car = &((*car)->map_next)) {
-        printf("RENDER CAR\n");
         gui_render_car(handle->renderer, *car);
     }
 
