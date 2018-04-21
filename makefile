@@ -1,4 +1,22 @@
-SRC_FILES = $(wildcard src/*.c) $(wildcard src/**/*.c)
+SRC_FILES = $(wildcard src/*.c) $(wildcard src/map/*.c)
+INCLUDE_DIRS = -Iinclude
+GCC = gcc
+CFLAGS = -lm
 
-default: $(SRC_FILES)
-	gcc -Iinclude $(SRC_FILES) -lm `pkg-config --cflags --libs sdl2`
+ifndef NOGUI
+	CFLAGS += `pkg-config --cflags --libs sdl2`
+	SRC_FILES += $(wildcard src/gui/*.c)
+else
+	CFLAGS += -D NOGUI
+endif
+
+default: a.out
+
+nogui:
+	$(MAKE) $(MAKEFLAGS) NOGUI=1 a.out
+
+a.out: $(SRC_FILES)
+	$(GCC) $(INCLUDE_DIRS) $(SRC_FILES) $(CFLAGS)
+
+clear:
+	rm a.out

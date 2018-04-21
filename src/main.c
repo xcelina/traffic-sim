@@ -8,7 +8,10 @@
 #include "map/street.h"
 #include "map/car.h"
 #include "config.h"
+
+#ifndef NOGUI
 #include "gui.h"
+#endif
 
 #define CROSSING_COUNT 10
 
@@ -17,7 +20,10 @@
 int main(int argc, char **argv) {
     MAP *map;
     CROSSING *crossings[CROSSING_COUNT];
+
+#ifndef NOGUI
     WINDOW_HANDLE *handle;
+#endif
 
     printf("Creating map...\n");
     map = map_create();
@@ -36,6 +42,7 @@ int main(int argc, char **argv) {
         }
     }
 
+#ifndef NOGUI
     printf("Showing window...\n");
     handle = gui_open_window(map);
 
@@ -45,6 +52,7 @@ int main(int argc, char **argv) {
 
     printf("Destroying window...\n");
     gui_close_window(handle);
+#endif
 
     printf("Destroying map...\n");
     map_destroy(map);
