@@ -3,9 +3,9 @@
 
 typedef struct STREET STREET;
 
-#include "map/map.h"
-#include "map/crossing.h"
-#include "map/car.h"
+#include "sim/map.h"
+#include "sim/crossing.h"
+#include "sim/car.h"
 
 struct STREET {
     CROSSING *source;

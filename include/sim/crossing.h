@@ -4,8 +4,8 @@
 typedef struct CROSSING_POLICY CROSSING_POLICY;
 typedef struct CROSSING CROSSING;
 
-#include "map/map.h"
-#include "map/street.h"
+#include "sim/map.h"
+#include "sim/street.h"
 #include "config.h"
 
 typedef void (*crossing_update)(MAP *map, CROSSING *crossing, float delta);

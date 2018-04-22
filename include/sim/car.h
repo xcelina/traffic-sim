@@ -3,9 +3,9 @@
 
 typedef struct CAR CAR;
 
-#include "map/map.h"
-#include "map/street.h"
-#include "map/crossing.h"
+#include "sim/map.h"
+#include "sim/street.h"
+#include "sim/crossing.h"
 
 struct CAR {
     float top_speed;

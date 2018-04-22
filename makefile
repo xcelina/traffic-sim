@@ -1,4 +1,4 @@
-SRC_FILES = $(wildcard src/*.c) $(wildcard src/map/*.c)
+SRC_FILES = $(wildcard src/*.c) $(wildcard src/sim/*.c)
 INCLUDE_DIRS = -Iinclude
 GCC = gcc
 CFLAGS = -lm

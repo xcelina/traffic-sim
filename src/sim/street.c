@@ -2,7 +2,7 @@
 #include <math.h>
 #include <stdio.h>
 
-#include "map/street.h"
+#include "sim/street.h"
 
 STREET *street_create(MAP *map, CROSSING *source, CROSSING *drain, float tempo_limit) {
     if (source == NULL || drain == NULL || map == NULL) { 

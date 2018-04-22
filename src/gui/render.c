@@ -1,8 +1,8 @@
 #include "SDL.h"
-#include "map/map.h"
-#include "map/crossing.h"
-#include "map/street.h"
-#include "map/car.h"
+#include "sim/map.h"
+#include "sim/crossing.h"
+#include "sim/street.h"
+#include "sim/car.h"
 #include "gui.h"
 #include "config.h"
 #include <stdio.h>

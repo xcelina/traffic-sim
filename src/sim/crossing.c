@@ -1,7 +1,7 @@
 #include <stddef.h>
 #include <stdlib.h>
 
-#include "map/crossing.h"
+#include "sim/crossing.h"
 
 #include "config.h"
 

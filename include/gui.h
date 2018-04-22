@@ -2,7 +2,7 @@
 #define __GUI_H__
 
 #include "SDL.h"
-#include "map/map.h"
+#include "sim/map.h"
 
 typedef struct WINDOW_HANDLE {
     SDL_Window *window;
