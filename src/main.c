@@ -46,9 +46,9 @@ int main(int argc, char **argv) {
     printf("Showing window...\n");
     handle = gui_open_window(map);
 
-    gui_render(handle);
-
-    sleep(3);
+    while (gui_update(handle)) {
+        gui_render(handle);
+    }
 
     printf("Destroying window...\n");
     gui_close_window(handle);

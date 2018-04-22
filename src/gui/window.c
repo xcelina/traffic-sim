@@ -2,6 +2,8 @@
 #include "SDL.h"
 #include <stdio.h>
 
+#define MIN(x, y) (x < y ? x : y)
+
 WINDOW_HANDLE *gui_open_window(MAP *map) {
     SDL_Window *window;
     SDL_Renderer *renderer;
@@ -40,6 +42,10 @@ WINDOW_HANDLE *gui_open_window(MAP *map) {
     handle->window = window;
     handle->renderer = renderer;
     handle->map = map;
+
+    handle->zoom = (float)MIN(WINDOW_WIDTH, WINDOW_HEIGHT);
+    handle->top_left.x = 0.0;
+    handle->top_left.y = 0.0;
 
     return handle;
 }

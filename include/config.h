@@ -15,4 +15,6 @@
 
 #define STREET_WIDTH 1
 
+#define MOUSEWHEEL_ZOOM_SPEED 1.05f
+
 #endif
