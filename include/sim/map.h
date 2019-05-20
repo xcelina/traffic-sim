@@ -22,6 +22,9 @@ void map_add_crossing(MAP *map, CROSSING *crossing);
 void map_add_car(MAP *map, CAR *car);
 void map_add_street(MAP *map, STREET *street);
 
+CROSSING *map_get_crossing(MAP *map, int index);
+STREET *map_get_street(MAP *map, int index);
+
 void map_rem_crossing(MAP *map, CROSSING *crossing);
 void map_rem_car(MAP *map, CAR *car);
 void map_rem_street(MAP *map, STREET *street);

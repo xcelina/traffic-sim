@@ -1,6 +1,8 @@
 #include <stddef.h>
 #include <stdlib.h>
 
+#include <math.h>
+
 #include "sim/crossing.h"
 
 #include "config.h"
@@ -50,4 +52,14 @@ CROSSING *crossing_create(MAP *map, float x, float y, CROSSING_POLICY *policy) {
     }
 
     return crossing;
+}
+
+float crossing_get_distance(CROSSING *a, CROSSING *b) {
+  if (a != NULL && b != NULL) {
+    float delta_x = b->position.x - a->position.x,
+          delta_y = b->position.y - a->position.y;
+    return (float) sqrt(delta_x * delta_x + delta_y * delta_y);
+  } else {
+    return -1.0f;
+  }
 }

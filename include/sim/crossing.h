@@ -35,4 +35,6 @@ CROSSING *crossing_create(MAP *map, float x, float y, CROSSING_POLICY *policy);
 int crossing_add_source(CROSSING *crossing, STREET *source);
 int crossing_add_drain(CROSSING *crossing, STREET *drain);
 
+float crossing_get_distance(CROSSING *a, CROSSING *b);
+
 #endif
